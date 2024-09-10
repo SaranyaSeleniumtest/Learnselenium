@@ -1,0 +1,9 @@
+package Test;
+
+import Base.Base;
+
+public class LoginHRM extends Base {
+	
+	
+
+}

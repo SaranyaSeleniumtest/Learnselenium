@@ -1,0 +1,15 @@
+package Utilities;
+
+import java.util.Date;
+
+public class Learnjava {
+	
+	public static void main(String[] args) {
+		Date dt= new Date();
+		String path="Automationreport_"+dt.getTime();
+		int format= dt.getHours()+dt.getMinutes()+dt.getSeconds();
+		System.out.println(format);
+		System.out.println(dt.getTime());
+	}
+
+}

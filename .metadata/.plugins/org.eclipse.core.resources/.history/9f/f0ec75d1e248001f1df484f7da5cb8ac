@@ -1,0 +1,16 @@
+package testing;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class Handlewindows {
+	
+	public static void main(String[] args) {
+		String file=System.getProperty("user.dir")+"\\config.properties";
+				FileInputStream fis= new FileInputStream(file);
+		Properties prop= new Properties();
+		prop.load(null);
+		
+	}
+
+}

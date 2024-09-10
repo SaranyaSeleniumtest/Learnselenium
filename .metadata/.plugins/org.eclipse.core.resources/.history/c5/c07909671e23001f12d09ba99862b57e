@@ -1,0 +1,16 @@
+package com.firstcode;
+
+public class Login {
+
+	public static void main(String[] args) {
+		
+	//	System.setProperty("webdriver.chrome.", null)
+		//Chromedriver cs= new Chromedriver();
+		//locators findelementsBy name, id, linktext, xpath, css locator
+		//driver.get("url")
+		//driver.findelementByid("").Click
+		//driver.findelementByid("").Sendkeys
+		//driver.manage.windows.maximize
+	}
+	
+}

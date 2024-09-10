@@ -1,0 +1,122 @@
+package Interviewcodes;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+public class Revise_1508 extends Commonmethods {
+
+	public static void main(String[] args) throws Exception {
+		initialize();
+		setup("https://www.techlistic.com/2017/02/automate-demo-web-table-with-selenium.html");
+		getcellval("China");
+	}
+
+	public void tc1_auto() throws Exception {
+		initialize();
+		setup("https://www.google.com/");
+		driver.findElement(By.name("q")).sendKeys("Selenium",Keys.SPACE);
+		//		List<WebElement> ele=driver.findElements(By.xpath("//div[@role='presentation']//ul/li"));
+
+	}
+
+	public void tc2_table() throws Exception {
+		initialize();
+		setup("https://www.tutorialspoint.com/selenium/practice/webtables.php");
+		//		WebElement rows = driver.findElement(By.xpath("//table[contains(@class,'table table-striped')]//tbody/tr"));
+		//compare first name from table and get salary
+		webtablestatic("//table[contains(@class,'table table-striped')]//tbody/tr","Cantrell",2,5);
+	}
+	
+	public void tc3_table() throws Exception {
+		initialize();
+		setup("https://www.dezlearn.com/webtable-example/");
+		//		WebElement rows = driver.findElement(By.xpath("//table[contains(@class,'table table-striped')]//tbody/tr"));
+		//compare first name from table and get salary
+		dynamictable();
+		getxpath("Alvin Rogers").sendKeys("Automation");
+		getxpath("Monica Singh").sendKeys("Testing");
+		
+		selectdrop(gettypewebele("Mayur Deshmukh"),"Suv");
+
+		selectdrop(gettypewebele("John White"),"Sports");
+	}
+	public static void webtablestatic(String rowxpath,String condition,int colcompare, int getcolval) {
+
+		List<WebElement>rows=driver.findElements(By.xpath(rowxpath));
+		System.out.println(rows.size());
+		for(int r=2;r<=rows.size();r++) {
+
+			String compare = driver.findElement(By.xpath(rowxpath+"["+r+"]/td["+colcompare+"]")).getText();
+			if(compare.equalsIgnoreCase(condition)) {
+				String text = driver.findElement(By.xpath(rowxpath+"["+r+"]/td["+getcolval+"]")).getText();
+				System.out.println(text);
+				break;
+			}
+		}
+
+	}
+
+	public static void performactionwebtable(String rowxpath,String condition,int colcompare, int getcolval) {
+
+		List<WebElement>rows=driver.findElements(By.xpath(rowxpath));
+		System.out.println(rows.size());
+		for(int r=1;r<=rows.size();r++) {
+
+			String compare = driver.findElement(By.xpath(rowxpath+"["+r+"]/td["+colcompare+"]")).getText();
+			if(compare.equalsIgnoreCase(condition)) {
+				String text = driver.findElement(By.xpath(rowxpath+"["+r+"]/td["+getcolval+"]")).;
+				System.out.println(text);
+				break;
+			}
+		}
+
+	}
+
+
+	public static boolean tc1_autosuggest(List<WebElement>options,String Condition) {
+		boolean flag=false;
+		System.out.println(options.size());
+		for (WebElement op1 : options) {
+
+			System.out.println(op1.getText());
+
+		}
+		for (WebElement opt : options) {
+			if(opt.getText().equalsIgnoreCase(Condition)) {
+				opt.click();
+				flag=true;
+				break;
+			}
+
+		}
+		return flag;
+	}
+
+	/**
+	 * Handle dynamic webtable
+	 * @param condition
+	 * @return WebElement
+	 */
+	public static WebElement getxpath(String condition) {
+
+		return driver.findElement(By.xpath("//table[@class='tg']/tbody//tr/td[text()='"+condition+"']/following-sibling::td/input[@type='text']"));
+	}
+
+
+	public static WebElement gettypewebele(String condition) {
+
+		return driver.findElement(By.xpath("//table[@class='tg']/tbody//tr/td[text()='"+condition+"']/following-sibling::td/select"));
+	}
+	
+	public static WebElement getcellval(String path) {
+		return driver.findElement(By.xpath("//table[@class='tsc_table_s13']/tbody/tr//td/span[text()='"+path+"']/parent::td/preceding-sibling::th"));
+	}
+	public static void dynamictable() {
+		WebElement ele = getxpath("John White");
+		ele.sendKeys("Testing");
+	}
+
+}

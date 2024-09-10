@@ -1,0 +1,25 @@
+package com.firstcode;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Login {
+
+	public static void main(String[] args) {
+		
+	//	System.setProperty("webdriver.chrome.", null)
+		ChromeDriver driver= new ChromeDriver();
+		driver.get("url");
+		driver.findElement(By.id(null));
+		driver.findElement(By.name(null));
+		driver.findElement(By.xpath(null));
+		driver.findElement(By.linkText(null);
+		
+		//locators findelementsBy name, id, linktext, xpath, css locator
+		//driver.get("url")
+		//driver.findelementByid("").Click
+		//driver.findelementByid("").Sendkeys
+		//driver.manage.windows.maximize
+	}
+	
+}

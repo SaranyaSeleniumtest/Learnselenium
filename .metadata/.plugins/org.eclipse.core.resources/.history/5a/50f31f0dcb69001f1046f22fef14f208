@@ -1,0 +1,39 @@
+package Latestcode;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class Practice0309 {
+	
+	static WebDriver driver;
+	
+	public static void main(String[] args) {
+		driver= new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3000));
+		Assert.assertTrue(driver.findElement(By.xpath("//button[normalize-space()='Practice']")).isDisplayed(),"page not launched");
+		driver.findElement(By.id("hide-textbox")).click();
+		
+		Assert.assertFalse(driver.findElement(By.xpath("//*[@id='displayed-text']")).isDisplayed(),"Hide button not working properly");
+	}
+	
+	
+		public void tablecheck() {
+			String tableid="//div[@class='tableFixHead']/table[@id='product']";
+			List<WebElement>rows=driver.findElements(By.xpath(tableid+"//tr"));
+			System.out.println("Total rows" +rows.size());
+			for(int r=1;r<=rows.size();r++) {
+				driver.findElement(By.xpath(tableid+"//tr["+r+"]//td[1]")).getText();
+			}
+		}
+		
+		
+
+}

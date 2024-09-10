@@ -1,0 +1,12 @@
+package com.Testcases;
+
+import java.util.HashMap;
+
+public class LearnHashmap {
+
+	public static void main(String[] args) {
+		HashMap<String,String> hm= new HashMap<String,String>();
+		
+	}
+	
+}

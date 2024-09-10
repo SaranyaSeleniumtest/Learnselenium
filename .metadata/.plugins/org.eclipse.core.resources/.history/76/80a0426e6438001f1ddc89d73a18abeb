@@ -1,0 +1,29 @@
+package Interviewcode;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class Learnmousemove extends Base {
+//https://swisnl.github.io/jQuery-contextMenu/demo.html
+	
+	public static void performaction(WebElement ele,String action) {
+		Actions act= new Actions(driver);
+		switch (action) {
+		case "rightclick":
+			act.contextClick(ele).perform();;
+			break;
+		case "doubleclick":
+			act.doubleClick(ele).perform();;
+		case "mouseover":
+		case "draganddrop":
+		default:
+			break;
+		}
+		
+	}
+	public static void main(String[] args) {
+		setup("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+		performaction(driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']")),"rightclick");
+	}
+}

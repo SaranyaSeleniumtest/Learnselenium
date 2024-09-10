@@ -1,0 +1,10 @@
+package oopsWithPOM;
+
+import org.testng.ITestListener;
+import org.testng.ITestNGListener;
+
+public class LearnListner implements ITestListener  {
+	
+	
+
+}

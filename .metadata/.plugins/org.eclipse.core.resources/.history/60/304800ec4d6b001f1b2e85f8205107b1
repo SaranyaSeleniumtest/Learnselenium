@@ -1,0 +1,12 @@
+package Utilities;
+
+import java.util.Properties;
+
+public class config {
+
+	Properties prop;
+	public void property() {
+
+	}
+
+}

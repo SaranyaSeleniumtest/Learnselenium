@@ -1,0 +1,13 @@
+package Interviewcode;
+
+public class Learnmousemove extends Base {
+//https://swisnl.github.io/jQuery-contextMenu/demo.html
+	
+	public void actions_rightclick() {
+		
+	}
+	public static void main(String[] args) {
+		setup("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+		
+	}
+}

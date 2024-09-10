@@ -1,0 +1,21 @@
+package Interviewcode;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class BootStrapdropdown extends Base {
+
+	
+
+	public static void main(String[] args) {
+		setup("https://www.redbus.in/");
+		driver.findElement(By.id("account_dd")).click();
+		List<WebElement> options = driver.findElements(By.xpath("//ul[contains(@class,'header_dropdown_menu')]//li"));
+		drop(options,"Show My Ticket");
+		driver.quit();
+
+	}
+
+}

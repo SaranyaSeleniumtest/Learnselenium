@@ -1,0 +1,138 @@
+package Interviewcode;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+public class Learntables {
+	static WebDriver driver;
+	public static void setup() {
+		driver=new ChromeDriver();
+		try {
+			driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		}catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+			System.out.println("page not loaded");
+		}
+	}
+
+	public static void login() {
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		String title = driver.getTitle();
+		System.out.println(title);
+		Assert.assertEquals(title,"OrangeHRM");
+	}
+
+	public static void scroll() {
+		JavascriptExecutor jse=  (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,300)");
+	}
+    
+	public static void timesheet() {
+		//locate the table:		//div[@role='table']
+		//get the row elements
+		List<WebElement> rowele = driver.findElements(By.xpath("//div[@role='table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']"));
+		int rowcnt = rowele.size();//get rowcnt
+		for (int i = 1; i <= rowcnt; i++) {//iterate the row
+			//pass the td or cell number in xpath and get text of element
+			
+			String empname = driver.findElement(By.xpath("//div[@role='table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//div[@role='cell'][1]")).getText();
+			if(empname.equalsIgnoreCase("Ben Boss")) {
+				System.out.println("Record found");
+				driver.findElement(By.xpath("//div[@role='table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+1+"]//div[@role='cell'][3]//button")).click();	
+				break;
+			}
+			else if(i==rowcnt) {
+				System.out.println("Record not found");
+			}
+		}
+		
+		
+		
+	}
+	
+	public static void recruitment(String candi) {
+		List<WebElement> rowele = driver.findElements(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']"));
+		int rowcnt = rowele.size();
+		for(int i=1;i<=rowcnt;i++) {
+			String strcandidate = driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//div[@role='cell'][3]")).getText();
+			if(strcandidate.equalsIgnoreCase(candi)) {
+				driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//div[@role='cell'][7]//i[contains(@class,'eye')]")).click();
+				System.out.println("Able to view "+candi+ "record");
+				break;
+			}
+			else if (i==rowcnt) {
+				System.out.println("user not able to view "+candi+ "reccandiord");
+				break;
+				
+			}
+		}
+	}
+	
+	public static void tables() {
+
+		System.out.println(driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card'][1]//div[@role='cell'][2]")).getText());
+		//if we give user name of table we should check status of role 
+		//1.table element
+		WebElement tbl = driver.findElement(By.xpath("//div[@class='oxd-table']"));
+		// table---tbody----trow
+		//2. get row elements and rows cnt
+		List<WebElement> rowele = driver.findElements(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@role='row']"));
+		int rowcnt = rowele.size();
+
+		//3.Iterate through row
+		System.out.println(rowcnt);
+		for (int i = 1; i < rowcnt; i++) {
+			// 4.pass the required column number and get text
+			String struser=driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//div[@role='cell'][2]")).getText();
+			//			String struser = driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@role='row']//div[@role='cell'][1]")).getText();
+			//compare the col values and do action
+			if(struser.equalsIgnoreCase("Nesta"))
+			{
+				String strstatus = driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//div[@role='cell'][5]")).getText();
+				//TODO click on Edit user
+				driver.findElement(By.xpath("//div[@class='oxd-table']//div[@class='oxd-table-body']//div[@class='oxd-table-card']["+i+"]//i[contains(@class,'pencil')]")).click();
+
+				System.out.println("The status of user:  "+struser+ "is "+strstatus);
+				break;
+			}
+		}
+
+
+	}
+	public static void lnkclick(WebElement ele) throws Exception {
+		Thread.sleep(3000);
+		Actions act= new Actions(driver);
+		act.moveToElement(ele).build().perform();
+		//act.click(ele).build().perform();
+
+
+	}
+
+
+
+	public static void main(String[] args) throws Exception {
+		setup();
+		login();
+		Thread.sleep(5000);
+		System.out.println("clickrecruitment");
+		scroll();
+		recruitment("Cedric C Ross.");
+		//lnkclick(driver.findElement(By.xpath("//a[@class='oxd-main-menu-item active']")));
+	//	timesheet();
+	//	tables();
+	}
+
+}

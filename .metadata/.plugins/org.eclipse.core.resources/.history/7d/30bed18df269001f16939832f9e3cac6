@@ -1,0 +1,15 @@
+package com.Testcases;
+
+import java.util.HashMap;
+
+public class LearnHashmap {
+
+	public static void main(String[] args) {
+		HashMap<String,String> hm= new HashMap<String,String>();
+		hm.put("148170", "Saranya");
+		hm.put("148160", "Sam");
+		hm.put("148180","Tom");
+		
+	}
+	
+}

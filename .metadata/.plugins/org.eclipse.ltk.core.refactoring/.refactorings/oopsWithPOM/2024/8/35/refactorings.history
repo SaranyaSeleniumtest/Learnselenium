@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;testdata&apos; to &apos;seleniumgrid&apos;&#x0D;&#x0A;- Original project: &apos;oopsWithPOM&apos;&#x0D;&#x0A;- Destination element: &apos;seleniumgrid&apos;&#x0D;&#x0A;- Original element: &apos;testdata&apos;" description="Copy folder" element1="testdata" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1724832597541" target="/seleniumgrid" units="0" version="1.0"/>
+</session>

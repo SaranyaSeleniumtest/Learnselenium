@@ -1,0 +1,26 @@
+package Interviewcode;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class Learnmousemove extends Base {
+//https://swisnl.github.io/jQuery-contextMenu/demo.html
+
+	public static void rightclick() {
+		setup("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+		performaction(driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']")),"rightclick");
+		driver.quit();
+	}
+	public static void dragdrop() {
+		setup("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html");
+		dragdrop(driver.findElement(By.id("box6")),driver.findElement(By.id("box106")));
+		dragdrop(driver.findElement(By.id("box3")),driver.findElement(By.id("box103")));
+		dragdrop(driver.findElement(By.id("box4")),driver.findElement(By.id("box104")));
+	}
+	public static void main(String[] args) {
+//		rightclick();
+		dragdrop();
+		
+	}
+}

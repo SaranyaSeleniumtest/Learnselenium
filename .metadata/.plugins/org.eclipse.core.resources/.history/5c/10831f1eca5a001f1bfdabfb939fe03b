@@ -1,0 +1,36 @@
+package Interviewcodes;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+public class Revise_1508 extends Commonmethods {
+
+	public static void main(String[] args) throws Exception {
+		initialize();
+		setup("https://www.google.com/");
+		driver.findElement(By.id("q")).sendKeys("Selenium",Keys.SPACE);
+		List<WebElement> ele=driver.findElements(By.xpath("//div[@role='presentation']//ul/li"));
+		
+		System.out.println(tc1_autosuggest(ele,"selenium webdriver"));
+	}
+	
+	public static boolean tc1_autosuggest(List<WebElement>options,String Condition) {
+		boolean flag=false;
+		for (WebElement op1 : options) {
+			System.out.println(op1.getText());
+			
+		}
+		for (WebElement opt : options) {
+			if(opt.getText().equalsIgnoreCase(Condition)) {
+				opt.click();
+				flag=true;
+				break;
+			}
+			
+		}
+		return flag;
+	}
+}

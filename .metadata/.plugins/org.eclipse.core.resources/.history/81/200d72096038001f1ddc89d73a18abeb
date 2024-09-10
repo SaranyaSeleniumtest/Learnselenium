@@ -1,0 +1,44 @@
+package Interviewcode;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Webtable extends Base {
+	
+	
+	public static void getdatatable(String strcountry) {
+		//identify row ele
+		
+		List<WebElement> rowele = driver.findElements(By.xpath("//table[@id='countries']//tr"));
+		int rowcnt = rowele.size();// getrowcnt
+		//System.out.println(rowcnt);
+//		iterate through rowcnt and go inside specific row and get cell or td val
+		for(int i=2;i<=rowcnt;i++) {
+			String cntyele = driver.findElement(By.xpath("//table[@id='countries']//tr["+i+"]//td[2]")).getText();
+			
+			if(cntyele.equalsIgnoreCase(strcountry)) {
+				String strcapital = driver.findElement(By.xpath("//table[@id='countries']//tr["+i+"]//td[3]")).getText();
+				String strcurrency = driver.findElement(By.xpath("//table[@id='countries']//tr["+i+"]//td[4]")).getText();
+				
+				System.out.println("Capital of country "+strcountry+ " is: "+strcapital);
+				System.out.println("Currency of country "+strcountry+ " is: "+strcurrency);
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		setup();
+		Thread.sleep(3000);
+		scroll();
+		getdatatable("Spain");
+		getdatatable("Swaziland");
+		getdatatable("Zimbabwe");
+		getdatatable("Iraq");
+		driver.quit();
+	}
+
+}

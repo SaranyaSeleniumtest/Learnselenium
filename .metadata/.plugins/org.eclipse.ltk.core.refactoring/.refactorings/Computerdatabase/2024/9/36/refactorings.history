@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;LearnHashmap.java&apos; to &apos;seleniumgrid/src/main/java/Utilities&apos;&#x0D;&#x0A;- Original project: &apos;Computerdatabase&apos;&#x0D;&#x0A;- Destination element: &apos;seleniumgrid/src/main/java/Utilities&apos;&#x0D;&#x0A;- Original element: &apos;com.Testcases.LearnHashmap.java&apos;" description="Copy compilation unit" destination="=seleniumgrid/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;Utilities" element1="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;com.Testcases{LearnHashmap.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1725445895497" units="1" version="1.0"/>
+</session>

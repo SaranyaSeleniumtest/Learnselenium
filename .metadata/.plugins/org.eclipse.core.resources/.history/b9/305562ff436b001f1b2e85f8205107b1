@@ -1,0 +1,31 @@
+package Utilities;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+public class Learnjava {
+	WebDriver driver;
+	
+	public static void main(String[] args) {
+		Date dt= new Date();
+		String path="Automationreport_"+dt.getTime();
+		int format= dt.getHours()+dt.getMinutes()+dt.getSeconds();
+		System.out.println(path);
+		System.out.println(dt.getTime());
+		SimpleDateFormat sdf= new SimpleDateFormat("yyy.mm.dd");
+		
+		
+		System.out.println((sdf.format(dt)));
+	}
+	
+	public void screen() {
+		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+		takesScreenshot.getScreenshotAs(OutputType.FILE);
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package Interviewcode;
+
+public class LearnPagination {
+
+	static void string() {
+		String txt = "Testing123";
+	System.out.println(txt.lastIndexOf(txt));
+		
+	}
+	
+	public static void main(String[] args) {
+		string();
+	}
+}

@@ -1,0 +1,20 @@
+package Test;
+
+import org.testng.annotations.Test;
+
+import Base.Base;
+import Utilities.POM_login;
+
+public class LoginHRM extends Base {
+	
+	@Test
+	public void logintest() {
+		POM_login login= new POM_login(driver);
+		login.enteruser(null);
+		login.enterpass(null);
+		login.clicklogin();
+		
+		
+	}
+
+}

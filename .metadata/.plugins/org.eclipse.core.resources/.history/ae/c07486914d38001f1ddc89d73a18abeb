@@ -1,0 +1,17 @@
+package Interviewcode;
+
+public class LearnPagination {
+
+	static void string() {
+		String txt = "426pages";
+		String[] split = txt.split("pages");
+		int length = split.length;
+		System.out.println(length);
+	System.out.println(split[0]);
+		
+	}
+	
+	public static void main(String[] args) {
+		string();
+	}
+}

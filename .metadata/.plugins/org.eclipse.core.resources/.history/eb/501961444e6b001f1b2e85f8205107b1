@@ -1,0 +1,12 @@
+package Utilities;
+
+public class POM_login {
+	
+	@FindBy(id="username")
+	WebElement "txt_user";
+	
+	@FindBy(id="")
+	WebElement "txt_pass";
+	
+
+}

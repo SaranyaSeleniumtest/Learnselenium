@@ -1,0 +1,22 @@
+package Utilities;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class POM_login {
+	
+	@FindBy(name="username")
+	WebElement "txt_user";
+	
+	@FindBy(name="password")
+	WebElement "txt_pass";
+	
+	@FindBy(name="") WebElement "btnlogin";
+	
+	public POM_login(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
+				
+	
+
+}

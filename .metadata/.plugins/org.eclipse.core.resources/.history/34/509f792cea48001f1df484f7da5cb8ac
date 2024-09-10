@@ -1,0 +1,70 @@
+package testing;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Handlewindows {
+	public static WebDriver driver;
+	public static Properties prop;
+	public static void initialize() throws Exception {
+		String file=System.getProperty("user.dir")+"\\config.properties";
+		FileInputStream fis= new FileInputStream(file);
+		 prop= new Properties();
+		prop.load(fis);
+		
+		System.out.println(prop.getProperty("url"));
+
+	}
+	public static void setup() {
+		driver= new ChromeDriver();
+		driver.get(prop.getProperty("url"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	}
+	public static void tc1() {
+		driver.findElement(By.xpath("//div[contains(@class,'h_menu_drop_button')]//a")).click();
+		driver.findElement(By.xpath("//div[@role='complementary']//ul[@class='menu']//a[normalize-space()='FLIGHTS']")).click();
+	}
+	public static void handlewindows() {
+		String win1title = driver.getTitle();
+		System.out.println(win1title);
+		Set<String> windowHandles = driver.getWindowHandles();
+		Object[] array = windowHandles.toArray();
+		String win1=array[0].toString();
+		String win2=array[1].toString();
+		driver.switchTo().window(win2);
+		System.out.println("title of window2"+driver.getTitle());
+		driver.switchTo().window(win1);
+		System.out.println("title of window1"+driver.getTitle());
+	}
+	
+	public static void handlewindows1() {
+		String win1title = driver.getTitle();
+		System.out.println(win1title);
+		Set<String> windowHandles = driver.getWindowHandles();
+		List<String> win=new ArrayList<String>(windowHandles);
+
+		String win1=win.get(0);
+		String win2=win.get(1);
+		driver.switchTo().window(win2);
+		System.out.println("title of window2"+driver.getTitle());
+		driver.switchTo().window(win1);
+		System.out.println("title of window1"+driver.getTitle());
+	}
+	public static void main(String[] args) throws Exception {
+		initialize();
+		setup();
+		tc1();
+		handlewindows1();
+
+	}
+
+}

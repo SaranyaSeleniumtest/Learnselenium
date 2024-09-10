@@ -1,0 +1,29 @@
+package Test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import Base.Base;
+import Utilities.POM_login;
+import jdk.internal.org.jline.utils.Log;
+
+public class LoginHRM extends Base {
+	
+	@Test
+	public void logintest() {
+		POM_login login= new POM_login(driver);
+		Log.info("Enter user information");
+		login.enteruser(null);
+		login.enterpass(null);
+		login.clicklogin();
+		Log.info("validate the login info");
+		Assert.assertTrue(login.validatedash(),"Dashboad page not displayed");
+		Log.info("Login successfull");
+	
+	}
+
+	@DataProvider
+	public void data() {
+		
+	}
+}

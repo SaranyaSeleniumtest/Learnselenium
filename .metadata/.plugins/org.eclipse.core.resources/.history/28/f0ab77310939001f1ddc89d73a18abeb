@@ -1,0 +1,15 @@
+package Interviewcode;
+
+import org.openqa.selenium.By;
+
+public class BootStrapdropdown extends Base {
+	
+	public void drop() {
+		driver.findElement(By.id("account_dd")).click();
+	}
+	
+	public static void main(String[] args) {
+		setup("https://www.redbus.in/");
+	}
+
+}

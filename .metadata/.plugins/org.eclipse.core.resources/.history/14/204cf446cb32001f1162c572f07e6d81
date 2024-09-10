@@ -1,0 +1,13 @@
+package testcases;
+
+public class Learntables {
+	
+	public void table() {
+		https://www.techlistic.com/2017/02/automate-demo-web-table-with-selenium.html
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package Interviewcode;
+
+import org.openqa.selenium.By;
+
+public class Testcode extends Base {
+	
+	public static void main(String[] args) {
+		setup("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
+		driver.findElement(By.xpath("//span[normalize-space()='Job']"));
+		drop(null, null)
+	}
+
+}

@@ -1,0 +1,5 @@
+package oopsWithPOM;
+
+public class Loginpage extends Pages  {
+
+}

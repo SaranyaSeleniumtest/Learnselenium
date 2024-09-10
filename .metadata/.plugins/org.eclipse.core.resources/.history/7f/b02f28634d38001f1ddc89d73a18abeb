@@ -1,0 +1,15 @@
+package Interviewcode;
+
+public class LearnPagination {
+
+	static void string() {
+		String txt = "Testing123";
+		String[] split = txt.split("Testing");
+	System.out.println(split[1]);
+		
+	}
+	
+	public static void main(String[] args) {
+		string();
+	}
+}

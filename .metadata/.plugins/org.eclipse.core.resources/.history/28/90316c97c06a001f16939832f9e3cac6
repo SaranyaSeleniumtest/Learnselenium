@@ -1,0 +1,23 @@
+package Utilities;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Learnjava {
+	
+	public static void main(String[] args) {
+		Date dt= new Date();
+		String path="Automationreport_"+dt.getTime();
+		int format= dt.getHours()+dt.getMinutes()+dt.getSeconds();
+		System.out.println(path);
+		System.out.println(dt.getTime());
+		SimpleDateFormat sdf= new SimpleDateFormat();
+		sdf.format("yyyy.mm.dd");
+					
+	}
+	
+	public void screen() {
+		
+	}
+
+}
